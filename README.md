@@ -1,11 +1,11 @@
-# 🛰️ EuroSAT — Clasificador de Uso del Suelo
+#  EuroSAT — Clasificador de Uso del Suelo
 
 Sistema de clasificación de imágenes satelitales con **Red Neural Densa + TensorFlow/Keras**,
 basado en extracción de características y predicción concurrente por hilos.
 
 ---
 
-## 📌 ¿De qué se trata?
+##  ¿De qué se trata?
 
 El proyecto clasifica imágenes de satélite del dataset **EuroSAT** en 10 categorías de uso
 del suelo europeo:
@@ -27,23 +27,23 @@ Las imágenes provienen del satélite **Sentinel-2** y tienen una resolución de
 
 ---
 
-## ⚙️ ¿Cómo funciona?
+##  ¿Cómo funciona?
 
 El sistema sigue el mismo patrón que el proyecto **"Calidad de Agua"**, adaptado para visión satelital:
 
 ```
-Calidad de Agua                     EuroSAT (este proyecto)
-─────────────────────────────       ─────────────────────────────────────────
-medicion_sensores()                 captura_satelital()
-  → [pH, turbidez, temp, tds]         → imagen aleatoria del dataset
+    EuroSAT (este proyecto)
+ ─────────────────────────────────────────
+    captura_satelital()
+    → imagen aleatoria del dataset
 
-  4 variables / columnas               230 variables / columnas extraídas:
-                                         128 HOG  (textura y estructura)
-                                          96 Hist. de color (R, G, B)
-                                           6 Stats de color (media + std)
+       230 variables / columnas extraídas:
+        128 HOG  (textura y estructura)
+         96 Hist. de color (R, G, B)
+          6 Stats de color (media + std)
 
-predecir([ph, turbidez, temp, tds]) predecir([col_1, col_2, ..., col_230])
-  → "Agua Segura"                      → "Forest" | "River" | etc.
+ predecir([col_1, col_2, ..., col_230])
+ → "Forest" | "River" | etc.
 ```
 
 ### Pipeline completo
@@ -100,7 +100,7 @@ Entrada  (230)  →  Dense(256, relu)  →  Dropout(0.30)
 
 ---
 
-## 📁 Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 eurosat_clasificador/
@@ -119,7 +119,7 @@ eurosat_clasificador/
 
 ---
 
-## 🚀 Cómo ejecutar desde cero
+##  Cómo ejecutar desde cero
 
 ### Requisitos previos
 
@@ -217,7 +217,7 @@ Presiona **Ctrl+C** para detener el sistema.
 
 ---
 
-## 🔧 Parámetros configurables
+##  Parámetros configurables
 
 | Parámetro | Archivo | Valor por defecto | Descripción |
 |-----------|---------|-------------------|-------------|
@@ -228,7 +228,7 @@ Presiona **Ctrl+C** para detener el sistema.
 
 ---
 
-## 📦 Dependencias
+##  Dependencias
 
 | Librería | Uso |
 |----------|-----|
@@ -239,7 +239,7 @@ Presiona **Ctrl+C** para detener el sistema.
 
 ---
 
-## 📝 Notas
+##  Notas
 
 - El archivo `EuroSAT.zip` **no se sube a Git** (ver `.gitignore`).
 - Los archivos del modelo (`.keras`, `.npz`) tampoco se suben; se regeneran con `python main.py`.
@@ -247,4 +247,3 @@ Presiona **Ctrl+C** para detener el sistema.
 
 ---
 
-*Proyecto adaptado del ejemplo "Calidad de Agua" al dataset EuroSAT de imágenes satelitales.*
